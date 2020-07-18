@@ -1,22 +1,26 @@
-require 'pry'
-
 class Patient
-  attr_accessor :name
 
+  @@all = []
+  attr_accessor :name
   def initialize(name)
     @name = name
-
+    @@all << self
   end
 
-  def new_appointment(doctor, date)
-    Appointment.new(self, doctor, date)
+  def self.all
+    @@all
+  end
+
+  def new_appointment(date, doctor)
+    Appointment.new(date, doctor, self)
   end
 
   def appointments
-    Appointment.all.select {|appointment| appointment.patient == self}
+    Appointment.all.select{|apt|apt.patient == self}
   end
 
   def doctors
-    appointments.map{|appointment| appointment.doctor}
+    appointments.map{|apt|apt.date}
   end
+
 end
