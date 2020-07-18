@@ -2,19 +2,23 @@ require_relative "./patient"
 require_relative "./doctor"
 
 class Appointment
-  attr_accessor :date, :doctor, :patient
 
   @@all = []
 
-  def initialize(patient, doctor, date)
+  attr_accessor :date, :doctor, :patient
+
+  def initialize(date, doctor, patient)
     @date = date
     @doctor = doctor
     @patient = patient
     @@all << self
+    # binding.pry
   end
 
   def self.all
     @@all
   end
+
+
 
 end
