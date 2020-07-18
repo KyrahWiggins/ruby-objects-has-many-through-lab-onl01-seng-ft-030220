@@ -18,4 +18,4 @@ class Genre
   end
 
 end
- 24  lib/patient.rb 
+ 24  lib/patient.rb
