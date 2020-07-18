@@ -1,11 +1,8 @@
 class Genre
-  attr_accessor :name
-
-  @@all = []
+  attr_reader :name
 
   def initialize(name)
     @name = name
-    @@all << self
   end
 
   def songs
@@ -15,13 +12,10 @@ class Genre
   end
 
   def artists
-    songs.map do |song|
-      song.artist
+      songs.map do |song|
+        song.artist
     end
   end
 
-  def self.all
-    @@all
-  end
-
 end
+ 24  lib/patient.rb 
