@@ -1,10 +1,11 @@
-require_relative "./patient"
-require_relative "./appointment"
-
+require "pry"
 class Doctor
-  attr_accessor :name
 
   @@all = []
+
+
+
+  attr_accessor :name
 
   def initialize(name)
     @name = name
@@ -16,14 +17,17 @@ class Doctor
   end
 
   def new_appointment(patient, date)
-    Appointment.new(patient, self, date)
+    Appointment.new(date, self, patient)
   end
 
   def appointments
-    Appointment.all.select { |appointment| appointment.doctor == self}
+    Appointment.all.select{|apt| apt.doctor == self}
   end
 
   def patients
-    appointments.map{|appointment| appointment.patient}
+    appointments.map{|apt|apt.patient}
+
   end
+
+
 end
