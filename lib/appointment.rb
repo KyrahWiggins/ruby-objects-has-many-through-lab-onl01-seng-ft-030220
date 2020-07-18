@@ -15,4 +15,4 @@ class Appointment
 
 
 end
- 34  lib/artist.rb 
+
