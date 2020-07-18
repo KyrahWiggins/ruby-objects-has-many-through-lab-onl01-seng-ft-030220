@@ -1,12 +1,12 @@
+require 'pry'
 class Patient
   attr_accessor :name
-
   def initialize(name)
-    @name=name
+    @name =  name
   end
 
-   def new_appointment(doctor, date)
-    Appointment.new(date, self, doctor)
+  def new_appointment(doctor, date)
+    Appointment.new(self, doctor, date)
   end
 
   def appointments
@@ -16,9 +16,10 @@ class Patient
   end
 
   def doctors
-    appointments.map do |appointment|
-      appointment.doctor
+    appointments.map do |appt|
+      appt.doctor
     end
   end
 
 end
+ 15  lib/song.rb 
